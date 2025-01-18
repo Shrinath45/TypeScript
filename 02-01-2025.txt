@@ -1,0 +1,126 @@
+FAQ: What are search parameters?
+Ans: Search parameters refers to query string.
+    You can access search parameters using "useSearchParams()" hook.
+    JavaScript uses "URLSearchParams" API.
+
+
+
+
+
+                        TypeScript
+
+
+FAQ: What are the issues with JavaScript?
+Ans:
+    - Not strongly Typed.
+    - It is not implicitly Strictly Typed
+    - It is not an OOP language, It supports only few features of OOP.
+    - No dynamic polymorphism
+    - No code level security
+    - Extensibility issues
+
+
+- TypeScript is a strictly typed super set of JavaScript.
+- "Anders Hejlberg" of Microsoft designed the typescript architecture. [ C# & TypeScript]
+- TypeScript is built with typescript.
+- It can directly interact with hardware services.
+- It is a OOP language that can build large scale applications.
+
+
+Features:
+- It is strongly typed.
+- It is strictly typed.
+- It is an OOP language.
+- It is built in typescript.
+- It is native to OS services.
+- It is faster and light weight.
+
+
+Note: TypeScript is trans compiled into JavaScript. It is not a replacement for JavaScript.
+        It is an alternative for JavaScript.
+
+
+
+TypeScript Architecture:
+
+1. TypeScript Core Compiler
+
+    core.ts     : It verifies the entry point and loads basic library.
+
+    programme.ts    : It checks the syntax and keywords.
+
+    parser.ts       : It is responsible for converting the data type.
+
+    check.ts        : It is responsible for verifying the data type.
+    
+    scanner.ts      : It handles input.
+
+    emitter.ts      : It handle output.
+
+
+
+2. Standalone TS Compiler
+
+    tsc.ts      : It translates the TypeScript code into JavaScript.
+
+
+3. Language Service
+
+    services.ts     : It provides a pre-defined business logic.
+                    It contains a factory of values and functions for TypeScript language.
+
+
+4. TS Server
+
+    server.ts       : It is responsible for hosting TS application.
+                    It can listen to the request and send response.
+
+
+5. VS Shim
+
+    shims.ts        : It makes TypeScript platform neutral.
+                    It can run everywhere, any device & any platform.
+
+
+6. Managed Language Service
+
+    - It is a service understandable to all OS services.
+    - Unmanaged code is OS specific.
+    - Managed code is cross platform.
+            
+
+
+Install TypeScript
+
+    C:\> npm install -g typescript
+
+    C:\> tsc -v     [ 5x ]
+
+
+Create TypeScript Project:
+
+1. Create a new folder for Project
+
+    E:\typescript
+
+2. Open in VS Code
+
+3. Run the following command
+
+    > tsc --init
+
+4. It generate "tsconfig.json", which is a typescript configuration file.
+
+5. Add a new ts file
+
+    index.ts
+
+    console.log("Welcome to TS");
+
+6. Trans compile
+
+    >tsc index.ts   => generates index.js
+
+7. Run index.js using node Compiler
+
+    > node index.js
