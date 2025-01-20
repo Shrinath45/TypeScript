@@ -1,0 +1,202 @@
+Map Type
+- It is a key & value collection.
+- Map is generic type in JavaScript.
+- You can restrict the data type for keys in typescript map.
+
+Syntax:
+        var data:Map = new Map<keyType, valueType>();
+                     = new Map<string, any>();
+                     = new Map<number, string>();
+                     = new Map<any, any>();
+
+- Map takes 2 arguments, the key type and value type.
+
+EX:
+    let data:Map<string, number> = new Map<string, number>();
+
+- Map methods are same as in JavaScript
+
+    set()
+    get()
+    delete()
+    clear()
+    has()
+    size()
+    key()
+    values()
+    entries()  etc...
+
+
+Date Type:
+- It handles date and time values.
+- All date and time methods are same.   [getter, setters]
+
+Syntax:
+        var now:Date = new Date("yy-mm-dd hrs:min:milliSeconds");
+
+
+Regular Expression:
+- TypeScript provides "RegExp" as type for regular expression.
+- Expression is enclosed in "//".
+- Expression is verified by using "match()" method.
+
+Syntax:
+        var pattern:RegExp = /your_pattern/;
+
+EX:
+
+let pattern:RegExp = /\+91\d{10}/;
+var mobile:string = "+91 9876543218";
+if(mobile.match(pattern)){
+    console.log(`Success`)
+}else{
+    console.log(`Failed`);
+}
+
+
+Configuring Array of Objects:
+- A JSON collection is configured in typescript using contract and array.
+- "{}" is used to configure the rules for object.
+- "[]" is used to configure a collection.
+
+Syntax:
+        let data:{key:type}[] = [{}, {}];
+
+
+EX:
+let products:{id:number, title:string, price:number}[] = [{id:1, title:"A", price:50000}];
+
+- TypeScript operators and statements are same as of ES6+ versions.
+
+
+
+                    TypeScript Functions
+
+
+- The function declaration comprises of return type specification and also the data type for parameters.
+
+Syntax:
+        function Name(param:dataType): type | void
+        {
+
+        }
+
+- Function supports union of type as return to handle conditional rendering.
+
+EX:
+
+function Addition(a:number, b:number):number|boolean
+{
+    if(a>b){
+        return a>b;
+    }else{
+        return a+b;
+    }
+}
+
+- Function parameters can be optional, you can use "?" null reference character.
+- A required parameter can't follow optional parameter, hence all optional must be last parameters in formal list.
+
+Syntax:
+        function Name(param1:type, param2?:type):void
+        {
+
+        }
+EX:
+
+function Details(id:number, name:string, price?:number, stock?:boolean) : void {
+
+}
+Details(1, "TV");
+
+- A function parameter can be function and can return a function.
+- It refers to higher Order Functions and function Currying.
+
+Syntax:
+        function Name(param:Function):Function{
+            return param();
+        }
+        Name(() => {})();
+
+EX:
+index.ts
+
+function Validate(success:Function, failure:Function): Function
+{
+    let password:string = "abc";
+    if(password==="abc"){
+        return success();
+    } else {
+        return failure();
+    }
+}
+Validate(function(){console.log(`Success`)}, function(){ console.log(`Invalid`)})();
+
+>tsc index.ts
+>node index.js
+
+EX:
+
+
+function FetchData(url:string) : {id:number, name:string}[]
+{
+    return [{id:1, name:'TV'}, {id:2, name:'mobile'}];
+}
+FetchData('fakestore').map(item =>{
+   
+})
+
+- A Function rest parameter is defined as "any" type array.
+- You can also restrict rest parameter values to specific type.
+
+Syntax:
+        function Name(...params:any[]){
+
+        }
+        Name(1, 'TV', true);
+
+EX:REST
+function Details(...args:any[])
+{
+    let [id, name, stock] = args;
+    console.log(`id=${id}\nname=${name}\nstock=${stock}`);
+}
+Details(1, 'TV', true);
+
+Ex: Spread
+
+
+function Details(id:number, name:string, stock:boolean) : void{
+    console.log(`id=${id}\nname=${name}\nstock=${stock}`);
+}
+Details(...[1, 'tv', true]);
+
+
+
+                    TypeScript OOP
+
+- Various programming systems used in real world application development.
+    a) POPS [Process Oriented Programming System]
+    b) OBPS [Object Based Programming System]
+    c) OOPS [Object Oriented Programming System]
+
+
+Features:
+    - Code Reusability
+    - Code Extensibility
+    - Code Separation
+    - Code Level Security
+
+Characteristics of OOP:
+    - Encapsulation
+    - Inheritance
+    - Polymorphism
+    - Abstraction
+
+Issues with OOP:
+
+- Complex
+- Tedious
+- Slow, heavy, large
+- Can't directly interact with hardware services.
+- Don't support low level features.

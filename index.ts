@@ -1,8 +1,10 @@
-
-let product:{name:string, price:number, stock:boolean, rating?:{rate:number, count:number}} = {
-    name: "TV",
-    price: 34000.50,
-    stock: true,
-    rating: {rate:4.5, count:45}
-
+function Validate(success:Function, failure:Function): Function
+{
+    let password:string = "abc";
+    if(password==="abc"){
+        return success();
+    } else {
+        return failure();
+    }
 }
+Validate(function(){console.log(`Success`)}, function(){ console.log(`Invalid`)})();
