@@ -1,0 +1,12 @@
+<script>
+    var product = {
+        name: "TV",
+        price:3000,
+
+    }
+    Object.freeze(product);
+    product.price = 4.2;
+    for(var property in product){
+        document.write(product[property] +  "<br>");
+    }
+</script>

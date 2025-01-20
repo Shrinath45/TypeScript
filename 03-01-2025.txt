@@ -1,0 +1,157 @@
+- What is TypeScript
+- TypeScript Architecture
+- Setup TypeScript
+
+
+
+                        TypeScript Language
+
+
+1. Variables
+- Variable declaration, assignment and initialization is same as in JavaScript.
+- Keywords var, let and const are used for variables.
+- Variables are strongly typed.
+
+Syntax:
+
+    var variableName:dataType;
+    let username:string;
+    const age:number=22;
+
+- TypeScript support "Type Inference".
+- TypeScript Inference allows to configure data type for variable according to value initialized.
+
+Syntax:
+        var age = 22;   // age is number
+        age = "A";      // invalid
+
+- If data type is not defined and value is not initialized then the default type is "any", which is the root type for all data types.
+
+    var age;    // age is any type
+    age = 10;   // age is number
+    age = "A";  // valid
+
+
+- TypeScript supports "union" of types.
+- Union allows to configure multiple types for a reference.
+
+    var username: string | null = prompt("Enter Name");
+
+    var value: string|number;
+    value = "A";
+    value = 10;
+    value = true;   // invalid
+
+
+
+2. Data Types
+
+a) Primitive 
+b) Non Primitive
+
+
+Primitive Types:
+    a) number
+    b) string
+    c) boolean
+    d) null
+    e) undefined
+    f) symbol
+    g) bigint
+
+Syntax:
+        let name:string = "tv";
+        let price:number = 34000;
+        let stock:boolean = true;
+        let id:symbol = Symbol();
+        etc..
+
+Note: All JavaScript methods are same for handling number, string and other types.
+
+
+Non Primitive Types:
+
+1. Array
+- Array reduces overhead and complexity.
+- TypeScript Array can have 2 behaviors
+
+    a) Similar Type
+    b) Various Types
+
+- Declaration and memory initialization or assignment is same.
+
+    a) [ ]
+    b) Array()
+
+Syntax:
+        var values:string[] = ["A", "B"];
+        var values:number[] = [10, 20, 30];
+        var values:any[] = ["A", 10, true];
+
+        var values:any[] = new Array(10, 20);
+        var values:any[] = new Array("A", "B");
+
+
+Note: Array Constructor is generic type, it can initialize only Similar data types even when the type is configured as "any". The first value type is used for all other values in sequence.
+
+- You can assign different types of value into array reference configure with Array().
+    
+    var values:any[] = new Array();
+    values[0] = "A";
+    values[1] = 10;     // all valid
+    values[2] = true;
+
+- If array allows initialization and assignment of Various values then it is referred as a "Tuple".
+
+    var values:any[] = [];
+
+- Array supports union of types for assignment not for initialization.
+
+Syntax:
+        
+        let values:string[] | number[] = [10, "A"];     // invalid
+
+
+        let values:string[] | number[] = [];
+        values[0] = "A";    // valid
+        values[1] = 10;     // valid
+        values[2] = true;   // invalid
+    
+
+        var values:string[] | number[]; 
+        values[0] = 10;
+        values[1] = 20;     // invalid - memory initialization or assignment is required.
+
+- All array methods are same as in JavaScript.
+
+
+
+2. Object
+- It is a key and value collection.
+- TypeScript object can have strongly typed keys.
+- It can restrict the data type for values stored under the reference of a key.
+- It uses a contract.
+- Contract defines rules for configuring object.
+- Contract configures keys and their data type.
+
+Syntax:
+        var obj: {key:type, key:type} = {
+            key:value,
+            key:value
+        }
+
+- Every key is mandatory to implement.
+- You can configured optional keys by using "?" null reference character.
+
+Syntax:
+        var obj: {key?:type} = { }
+
+EX:
+
+let product:{name:string, price:number, stock:boolean, rating?:{rate:number, count:number}} = {
+    name: "TV",
+    price: 34000.50,
+    stock: true,
+    rating: {rate:4.5, count:45}
+
+}
